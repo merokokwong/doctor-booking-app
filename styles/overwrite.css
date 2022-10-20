@@ -1,0 +1,7 @@
+/* Doctor List Page 
+remove padding on the opening hour collapse header 
+make the collapse icon closer to the text without affecting the collapse body */
+.ant-collapse-header {
+  padding: 0 !important;
+  max-width: 130px !important;
+}
