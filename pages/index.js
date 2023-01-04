@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useBookingContext } from "../contexts/Booking";
 import DoctorListItem from "../components/doctors/DoctorListItem";
 import createApiClient from "../utils/apiClient";
+import DUMMY_DOCTORS from "../public/mockData"
 
 function HomePage(props) {
   const { doctors, bookings } = props;
@@ -41,7 +42,7 @@ export async function getServerSideProps() {
   } catch (error) {
     return {
       props: {
-        doctors: null,
+        doctors: DUMMY_DOCTORS,
         bookings: null,
       },
     };
