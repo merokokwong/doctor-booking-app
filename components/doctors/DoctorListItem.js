@@ -4,7 +4,7 @@ import LocationIcon from "../../public/LocationIcon";
 import DoctorClinicHour from "./DoctorClinicHours";
 import BookingList from "../bookings/BookingList";
 
-function DoctorListItem({ doctor }) {
+function DoctorListItem({ doctor })
   const { name, id, address, opening_hours } = doctor;
   const { line_1, line_2, district } = address;
 

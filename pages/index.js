@@ -7,6 +7,7 @@ import DUMMY_DOCTORS from "../public/mockData"
 function HomePage(props) {
   const { doctors, bookings } = props;
   const { setConfirmedBooking } = useBookingContext();
+  console.log(doctors);
 
   useEffect(() => {
     setConfirmedBooking(bookings);
@@ -15,12 +16,12 @@ function HomePage(props) {
   return (
     <div>
       <h1>Doctor List</h1>
-      {doctors &&
+      {doctors.length > 0 ?
         doctors.map((doctor) => {
-          return <DoctorListItem key={doctor.id} doctor={doctor} />;
-        })}
+          return <DoctorListItem key={doctor.id} doctor={doctor} />
+        }) : null}
     </div>
-  );
+  )
 }
 
 export async function getServerSideProps() {
@@ -42,7 +43,7 @@ export async function getServerSideProps() {
   } catch (error) {
     return {
       props: {
-        doctors: DUMMY_DOCTORS,
+        doctors: [],
         bookings: null,
       },
     };
